@@ -18,7 +18,6 @@ wk.register({
 	g = {
 		name = "Git",
 		b = "Toggle line blame",
-		g = "Lazygit",
 	},
 	b = {
 		name = "Buffer",
@@ -28,7 +27,6 @@ wk.register({
 		p = "Pick buffer to open",
 		c = "Pick buffer to close",
 	},
-	t = "Open terminal",
 }, { prefix = "<leader>" })
 
 wk.register({

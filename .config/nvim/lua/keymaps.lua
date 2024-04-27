@@ -14,6 +14,10 @@ key("i", ";l", "<right>")
 key("i", ";a", "<Esc>A")
 key("i", ";;", "<Esc>A;")
 
+-- Normal Mode Keymaps
+key("n", "<Enter>", "o<Esc>")
+key("n", "<S-Enter>", "O<Esc>")
+
 -- Pane Changing Keymaps
 key("n", "<C-h>", "<C-w><C-h>")
 key("n", "<C-j>", "<C-w><C-j>")
@@ -29,8 +33,3 @@ key("n", "<leader>r", "<cmd>luafile %<CR>")
 -- Split Window Keymaps
 key("n", "<leader>v", vim.cmd.vsplit)
 key("n", "<leader>h", vim.cmd.split)
-
--- Terminal Keymaps
-key("n", "<leader>t", "<cmd>terminal<CR>")
-key("n", "<leader>gg", "<cmd>terminal lazygit<CR>")
-key("t", "<Esc>", [[<C-\><C-n>]])
