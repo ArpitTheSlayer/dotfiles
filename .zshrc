@@ -73,12 +73,6 @@ bindkey '^e' edit-command-line
 alias vim='nvim'
 alias ls='ls --color'
 
-# Powerlevel10k
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # ---- FZF ----
 
 # Set up fzf keybindings and fuzzy completion
@@ -99,6 +93,12 @@ _fzf_compgen_path(){
 _fzf_compgen_dir(){
 	fd --type=d --hidden --exclude .git . "$1"
 }
+
+# Powerlevel10k
+source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load zsh-autosuggestions;
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
