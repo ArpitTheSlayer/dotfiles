@@ -21,16 +21,16 @@ config.inactive_pane_hsb = {
 }
 
 -- Keys
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1001 }
 config.keys = {
 	-- Send C-a when pressing C-a twice
-	{ key = "a", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
+	{ key = "Space", mods = "LEADER|CTRL", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 	{ key = "c", mods = "LEADER", action = act.ActivateCopyMode },
 	{ key = "phys:Space", mods = "LEADER", action = act.ActivateCommandPalette },
 
 	-- Pane keybindings
 	{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "s", mods = "LEADER|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "s", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
 	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
@@ -54,7 +54,7 @@ config.keys = {
 				{ Foreground = { AnsiColor = "Fuchsia" } },
 				{ Text = "Renaming Tab Title...:" },
 			}),
-			action = wezterm.action_callback(function(window, pane, line)
+			action = wezterm.action_callback(function(window, _, line)
 				if line then
 					window:active_tab():set_title(line)
 				end
@@ -122,10 +122,11 @@ wezterm.on("update-status", function(window, pane)
 
 	-- Current working directory
 	local cwd = pane:get_current_working_dir()
+	local cwd_path = cwd.file_path
 	if cwd then
 		if type(cwd) == "userdata" then
 			-- Wezterm introduced the URL object in 20240127-113634-bbcac864
-			cwd = basename(cwd.file_path:sub(1, -2))
+			cwd = basename(cwd_path:sub(1, -2))
 		else
 			-- 20230712-072601-f4abf8fd or earlier version
 			cwd = basename(cwd)
