@@ -7,13 +7,13 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
+        "hyprland/workspaces",
         "sway/mode",
         "sway/scratchpad",
         "custom/media"
     ],
     "modules-center": [
-        "sway/window"
+        "hyprland/window"
     ],
     "modules-right": [
         "mpd",
@@ -25,12 +25,12 @@
         "memory",
         "temperature",
         "backlight",
-        "keyboard-state",
         "sway/language",
         "battery",
         "battery#bat2",
         "clock",
-        "tray"
+        "tray",
+				"custom/brightness"
     ],
     // Modules configuration
     // "sway/workspaces": {
@@ -49,15 +49,6 @@
     //         "default": ""
     //     }
     // },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -198,5 +189,14 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+    },
+		"custom/brightness": {
+					"exec": "ddcutil -b 18 getvcp 10 -t | perl -nE 'if (/ C (\\d+) /) { say $1; }'",
+					"exec-if": "sleep 1", // Give enough time for `sway output` command changes to propagate so we can read them in the next `exec`
+					"format": "{}% {icon}",
+					"format-icons": [""],
+					"interval": "once",
+					"on-scroll-up": "ddcutil -b 18 setvcp 10 + 10",
+					"on-scroll-down": "ddcutil -b 18 setvcp 10 - 10"
+			},
 }
