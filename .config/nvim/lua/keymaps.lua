@@ -17,6 +17,12 @@ key("i", ";;", "<Esc>A;")
 -- Normal Mode Keymaps
 key("n", "<Enter>", "o<Esc>")
 key("n", "<S-Enter>", "O<Esc>")
+key("n", "<leader>y", '"+yy')
+key("n", "<leader>p", '"+p')
+
+-- Visual Mode Keymaps
+key("v", "<leader>y", '"+y')
+key("v", "<leader>p", '"+p')
 
 -- Pane Changing Keymaps
 key("n", "<C-h>", "<C-w><C-h>")
