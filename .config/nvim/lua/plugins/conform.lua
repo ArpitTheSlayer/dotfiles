@@ -3,6 +3,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		javascript = { "prettier" },
 		javascriptreact = { "prettier" },
+		jsonc = { "prettier" },
 	},
 })
 

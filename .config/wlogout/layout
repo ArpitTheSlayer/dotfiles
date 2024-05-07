@@ -12,9 +12,9 @@
 }
 {
     "label" : "logout",
-    "action" : "loginctl terminate-user $USER",
+    "action" : "hyprctl dispatch exit",
     "text" : "Logout",
-    "keybind" : "e"
+    "keybind" : "o"
 }
 {
     "label" : "shutdown",
@@ -24,8 +24,8 @@
 }
 {
     "label" : "suspend",
-    "action" : "systemctl suspend",
-    "text" : "Suspend",
+    "action" : "hyprlock & systemctl suspend",
+    "text" : "Sleep",
     "keybind" : "u"
 }
 {

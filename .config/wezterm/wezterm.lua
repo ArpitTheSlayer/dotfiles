@@ -142,7 +142,7 @@ wezterm.on("update-status", function(window, pane)
 	cmd = cmd and basename(cmd) or ""
 
 	-- Time
-	local time = wezterm.strftime("%H:%M")
+	local time = wezterm.strftime("%I:%M %p")
 
 	-- Left status (left of the tab line)
 	window:set_left_status(wezterm.format({
