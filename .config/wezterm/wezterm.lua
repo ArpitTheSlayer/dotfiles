@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 -- Settings
 config.default_prog = { "/bin/zsh", "-l" }
 config.color_scheme = "Tokyo Night"
-config.font = wezterm.font({ family = "FiraCode Nerd Font", scale = 1 })
+config.font = wezterm.font({ family = "CaskaydiaCove Nerd Font", scale = 1 })
 config.window_background_opacity = 0.9
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"
