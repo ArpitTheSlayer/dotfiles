@@ -13,7 +13,7 @@ config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 3000
 config.default_workspace = "main"
 config.enable_scroll_bar = true
-config.enable_wayland = false
+config.enable_wayland = true
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {
